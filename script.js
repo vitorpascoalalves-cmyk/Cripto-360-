@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // REVEAL
   const reveals = document.querySelectorAll(".reveal");
 
   const revealObserver = new IntersectionObserver(
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reveals.forEach((el) => revealObserver.observe(el));
 
-  // NAV ACTIVE
   const navLinks = document.querySelectorAll(".nav-links a:not(.nav-cta)");
   const sections = document.querySelectorAll("section[id]");
 
@@ -39,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((section) => sectionObserver.observe(section));
 
-  // SMOOTH OFFSET
   const allAnchorLinks = document.querySelectorAll('a[href^="#"]');
 
   allAnchorLinks.forEach((link) => {
@@ -62,14 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // CANVAS BACKGROUND
   const canvas = document.getElementById("tech-canvas");
+  const bgGlow1 = document.querySelector(".bg-glow-1");
+  const bgGlow2 = document.querySelector(".bg-glow-2");
+  const tiltCards = document.querySelectorAll(".tilt-card");
+
   if (!canvas) return;
 
   const ctx = canvas.getContext("2d");
   let width = 0;
   let height = 0;
   let points = [];
+  let mouseX = null;
+  let mouseY = null;
+  let glowFrame = null;
 
   const mouse = {
     x: null,
@@ -168,6 +171,60 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animate);
   }
 
+  function updateGlowParallax() {
+    if (window.innerWidth < 769) return;
+
+    if (bgGlow1) {
+      const x1 = ((mouseX ?? width / 2) / width - 0.5) * -18;
+      const y1 = ((mouseY ?? height / 2) / height - 0.5) * -12;
+      bgGlow1.style.transform = `translate3d(${x1}px, ${y1}px, 0)`;
+    }
+
+    if (bgGlow2) {
+      const x2 = ((mouseX ?? width / 2) / width - 0.5) * 18;
+      const y2 = ((mouseY ?? height / 2) / height - 0.5) * 12;
+      bgGlow2.style.transform = `translate3d(${x2}px, ${y2}px, 0)`;
+    }
+
+    glowFrame = null;
+  }
+
+  tiltCards.forEach((card) => {
+    let frame = null;
+
+    card.addEventListener("mousemove", (event) => {
+      if (window.innerWidth < 769) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateY = ((x - centerX) / centerX) * 4;
+      const rotateX = ((centerY - y) / centerY) * 4;
+
+      if (frame) cancelAnimationFrame(frame);
+
+      frame = requestAnimationFrame(() => {
+        card.style.setProperty("--tilt-x", `${rotateX}deg`);
+        card.style.setProperty("--tilt-y", `${rotateY}deg`);
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      if (frame) cancelAnimationFrame(frame);
+
+      card.style.setProperty("--tilt-x", "0deg");
+      card.style.setProperty("--tilt-y", "0deg");
+      card.style.setProperty("--mouse-x", "50%");
+      card.style.setProperty("--mouse-y", "50%");
+    });
+  });
+
   window.addEventListener("resize", resizeCanvas, { passive: true });
 
   window.addEventListener(
@@ -175,6 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
     (event) => {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      if (!glowFrame) {
+        glowFrame = requestAnimationFrame(updateGlowParallax);
+      }
     },
     { passive: true }
   );
@@ -182,6 +245,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("mouseout", () => {
     mouse.x = null;
     mouse.y = null;
+    mouseX = null;
+    mouseY = null;
+
+    if (bgGlow1) bgGlow1.style.transform = "";
+    if (bgGlow2) bgGlow2.style.transform = "";
   });
 
   resizeCanvas();

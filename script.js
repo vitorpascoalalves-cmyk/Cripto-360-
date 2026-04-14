@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((section) => sectionObserver.observe(section));
 
-  // SMOOTH OFFSET NO NAV FIXO
+  // SMOOTH OFFSET
   const allAnchorLinks = document.querySelectorAll('a[href^="#"]');
 
   allAnchorLinks.forEach((link) => {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       event.preventDefault();
 
-      const navHeight = document.querySelector("nav")?.offsetHeight || 64;
+      const navHeight = document.querySelector("nav")?.offsetHeight || 68;
       const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 14;
 
       window.scrollTo({
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // CANVAS BACKGROUND TECNOLÓGICO
+  // CANVAS BACKGROUND
   const canvas = document.getElementById("tech-canvas");
   if (!canvas) return;
 
@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const mouse = {
     x: null,
     y: null,
-    radius: 140
+    radius: 150
   };
 
   function resizeCanvas() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
 
-    const totalPoints = Math.max(36, Math.min(90, Math.floor(width / 22)));
+    const totalPoints = Math.max(28, Math.min(70, Math.floor(width / 28)));
     points = Array.from({ length: totalPoints }, createPoint);
   }
 
@@ -89,9 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 1.8 + 0.6
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: (Math.random() - 0.5) * 0.22,
+      size: Math.random() * 1.4 + 0.4
     };
   }
 
@@ -119,11 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (p.y < -20) p.y = height + 20;
       if (p.y > height + 20) p.y = -20;
 
-      drawGlow(p.x, p.y, 12, "rgba(251, 191, 36, 0.05)");
+      drawGlow(p.x, p.y, 9, "rgba(255,255,255,0.035)");
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = "#1F2937";
+      ctx.fillStyle = "rgba(255,255,255,0.30)";
       ctx.fill();
     }
 
@@ -133,13 +133,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const dy = points[i].y - points[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 130) {
-          const alpha = (1 - distance / 130) * 0.16;
+        if (distance < 120) {
+          const alpha = (1 - distance / 120) * 0.08;
 
           ctx.beginPath();
           ctx.moveTo(points[i].x, points[i].y);
           ctx.lineTo(points[j].x, points[j].y);
-          ctx.strokeStyle = `rgba(251, 191, 36, ${alpha})`;
+          ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
           ctx.lineWidth = 0.7;
           ctx.stroke();
         }
@@ -153,12 +153,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < mouse.radius) {
-          const alpha = (1 - distance / mouse.radius) * 0.24;
+          const alpha = (1 - distance / mouse.radius) * 0.12;
 
           ctx.beginPath();
           ctx.moveTo(points[i].x, points[i].y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(194, 65, 12, ${alpha})`;
+          ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }

@@ -3,180 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cripto Jovens | Ebook Premium</title>
-  <meta name="description" content="Cripto Jovens — ebook digital para quem quer entender criptomoedas de forma clara, organizada e profissional." />
+  <title>Cripto Jovens — Ebook Premium</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Satoshi:wght@300;400;500;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
-
-  <div id="scene">
-    <div class="scene-base"></div>
-    <div class="scene-grid"></div>
-    <!-- canvas injected by script.js -->
+  <!-- FUNDO TECNOLÓGICO -->
+  <div id="tech-bg" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <canvas id="tech-canvas"></canvas>
   </div>
 
-  <div class="topbar">
-    <em>Oferta de lançamento</em>&nbsp;&nbsp;·&nbsp;&nbsp;Acesso imediato após a confirmação
-  </div>
+  <!-- NAV -->
+  <nav>
+    <a href="#inicio" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      Cripto Jovens
+    </a>
 
-  <header>
-    <div class="container">
-      <nav>
-        <a href="#inicio" class="brand" aria-label="Cripto Jovens">
-          <div>
-            <div class="brand-name">Cripto Jovens</div>
-            <div class="brand-sub">ebook digital premium</div>
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li><a href="#beneficios">Benefícios</a></li>
-          <li><a href="#conteudo">Conteúdo</a></li>
-          <li><a href="#oferta">Oferta</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </nav>
+    <ul class="nav-links">
+      <li><a href="#beneficios">Benefícios</a></li>
+      <li><a href="#conteudo">Conteúdo</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#oferta" class="nav-cta">Comprar</a></li>
+    </ul>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>Bitcoin</span><span class="ticker-dot">✦</span>
+      <span>Blockchain</span><span class="ticker-dot">✦</span>
+      <span>Wallets</span><span class="ticker-dot">✦</span>
+      <span>Segurança</span><span class="ticker-dot">✦</span>
+      <span>Criptomoedas</span><span class="ticker-dot">✦</span>
+      <span>Acesso imediato</span><span class="ticker-dot">✦</span>
+      <span>Fundamentos</span><span class="ticker-dot">✦</span>
+      <span>Iniciantes</span><span class="ticker-dot">✦</span>
+
+      <span>Bitcoin</span><span class="ticker-dot">✦</span>
+      <span>Blockchain</span><span class="ticker-dot">✦</span>
+      <span>Wallets</span><span class="ticker-dot">✦</span>
+      <span>Segurança</span><span class="ticker-dot">✦</span>
+      <span>Criptomoedas</span><span class="ticker-dot">✦</span>
+      <span>Acesso imediato</span><span class="ticker-dot">✦</span>
+      <span>Fundamentos</span><span class="ticker-dot">✦</span>
+      <span>Iniciantes</span><span class="ticker-dot">✦</span>
     </div>
-  </header>
+  </div>
 
-  <main class="container">
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-badge">Ebook digital premium · Oferta de lançamento</div>
 
-    <!-- ── HERO ── -->
-    <section class="hero" id="inicio">
-      <div class="hero-content">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Material digital · iniciantes e intermediários
-        </div>
+    <h1 class="hero-title">
+      Entenda as<br />
+      <em>Cripto&shy;moedas</em>
+    </h1>
 
-        <h1>ENTENDA AS CRIPTOMOEDAS <span class="btc"></span></h1>
+    <p class="hero-sub">
+      Material moderno para quem quer dominar os fundamentos do mercado cripto —
+      sem linguagem técnica, sem enrolação.
+    </p>
 
-        <p class="hero-desc">
-          O <strong>Cripto Jovens</strong> foi criado para quem quer aprender os fundamentos
-          do mercado cripto de forma simples, moderna e profissional — sem depender de
-          conteúdos soltos e confusos.
+    <div class="hero-actions">
+      <a href="#oferta" class="btn-primary">
+        Garantir acesso
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1 7h12M7 1l6 6-6 6"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+
+      <a href="#conteudo" class="btn-ghost">Ver conteúdo</a>
+    </div>
+
+    <div class="hero-pills">
+      <span class="pill">Acesso imediato</span>
+      <span class="pill">Celular &amp; PC</span>
+      <span class="pill">Leitura objetiva</span>
+      <span class="pill">100% digital</span>
+    </div>
+
+    <div class="hero-card">
+      <p class="hero-card-label">Oferta de lançamento</p>
+      <p class="hero-card-old">R$ 97,00</p>
+      <p class="hero-card-price"><sup>R$</sup> 29<span>,90</span></p>
+      <p class="hero-card-note">pagamento único</p>
+
+      <div class="hero-card-tags">
+        <span class="hero-card-tag">Ebook digital completo</span>
+        <span class="hero-card-tag">Linguagem clara</span>
+        <span class="hero-card-tag">3 módulos organizados</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section" id="beneficios">
+    <p class="section-label reveal">Benefícios</p>
+    <h2 class="section-heading reveal reveal-delay-1">
+      Por que o Cripto Jovens é diferente
+    </h2>
+    <p class="section-sub reveal reveal-delay-2">
+      Em vez de jogar termos difíceis e excesso de informação, este ebook organiza
+      os conceitos essenciais em uma leitura acessível, elegante e prática.
+    </p>
+
+    <div class="benefits-grid reveal reveal-delay-2">
+      <div class="benefit-card">
+        <p class="benefit-num">01</p>
+        <h3 class="benefit-title">Explicação clara</h3>
+        <p class="benefit-text">
+          Entenda os fundamentos em linguagem simples, sem precisar traduzir termos complexos o tempo todo.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <p class="benefit-num">02</p>
+        <h3 class="benefit-title">Base mais sólida</h3>
+        <p class="benefit-text">
+          Aprenda primeiro o essencial para construir visão antes de avançar para conteúdos mais técnicos.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <p class="benefit-num">03</p>
+        <h3 class="benefit-title">Leitura objetiva</h3>
+        <p class="benefit-text">
+          Material pensado para quem quer estudar com rapidez, organização e boa experiência visual.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="section section-alt" id="conteudo">
+    <p class="section-label reveal">Conteúdo</p>
+    <h2 class="section-heading reveal reveal-delay-1">O que você vai aprender</h2>
+
+    <div class="modules-layout">
+      <div class="modules-aside reveal reveal-delay-1">
+        <p class="section-sub no-top">
+          Estruturado para entregar uma visão introdutória clara do mercado, com conceitos essenciais e segurança para continuar aprendendo.
         </p>
 
-        <div class="hero-actions">
-          <a href="#oferta" class="btn btn-primary">Comprar agora</a>
-          <a href="#conteudo" class="btn btn-ghost">Ver conteúdo</a>
-        </div>
-
-        <div class="hero-tags">
-          <span class="tag-pill">Acesso imediato</span>
-          <span class="tag-pill">Leitura objetiva</span>
-          <span class="tag-pill">Celular ou PC</span>
+        <div class="info-box">
+          <p class="info-box-label">Formato</p>
+          <p class="info-box-text">Digital · PDF de alta qualidade · Acesso após pagamento</p>
         </div>
       </div>
 
-      <div class="visual-shell">
-        <div class="book-card" id="heroCard">
-          <div class="book-cover">
-            <div class="book-top">
-              <span class="book-label">Cripto Jovens — Ebook</span>
-              <h2>Guia moderno para começar no mercado cripto</h2>
-              <p>Material estruturado para novos leitores entenderem o básico com mais confiança, clareza e menos ruído.</p>
-              <div class="chip-row">
-                <span class="chip">Bitcoin</span>
-                <span class="chip">Blockchain</span>
-                <span class="chip">Wallets</span>
-                <span class="chip">Segurança</span>
-              </div>
-            </div>
-            <div class="price-panel">
-              <div class="price-old">De R$ 97,00</div>
-              <div class="price-now"><sup>R$</sup> 29<sup>,90</sup></div>
-              <div class="price-note">Pagamento único · acesso após confirmação</div>
-              <a href="#oferta" class="btn btn-primary" style="width:100%">Garantir meu acesso</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── PROOF STRIP ── -->
-    <div class="proof-strip">
-      <div class="proof-item">
-        <strong>100% digital</strong>
-        <span>Acesse online agora</span>
-      </div>
-      <div class="proof-item">
-        <strong>Linguagem clara</strong>
-        <span>Sem termos complexos</span>
-      </div>
-      <div class="proof-item">
-        <strong>Organizado</strong>
-        <span>Sem enrolação</span>
-      </div>
-      <div class="proof-item">
-        <strong>Acesso rápido</strong>
-        <span>Comece hoje mesmo</span>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- ── BENEFÍCIOS ── -->
-    <section id="beneficios">
-      <div class="section-heading">
-        <span class="section-label">Benefícios</span>
-        <h2>Por que o Cripto Jovens é diferente</h2>
-        <p>Em vez de jogar termos difíceis e excesso de informação, este ebook organiza os conceitos mais importantes em uma leitura acessível, elegante e prática.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon">01</div>
-          <h3>Explicação clara</h3>
-          <p>Entenda os fundamentos em linguagem simples, sem precisar traduzir termos complexos o tempo inteiro.</p>
-        </div>
-        <div class="card">
-          <div class="icon">02</div>
-          <h3>Base mais sólida</h3>
-          <p>Aprenda primeiro o essencial para construir visão antes de avançar para conteúdos mais técnicos.</p>
-        </div>
-        <div class="card">
-          <div class="icon">03</div>
-          <h3>Leitura objetiva</h3>
-          <p>Material pensado para quem quer estudar com rapidez, organização e boa experiência visual.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CONTEÚDO ── -->
-    <section id="conteudo">
-      <div class="section-heading">
-        <span class="section-label">Conteúdo</span>
-        <h2>O que você vai aprender</h2>
-        <p>Estruturado para entregar uma visão introdutória clara do mercado, ajudando o leitor a entender conceitos essenciais com mais segurança.</p>
-      </div>
-      <div class="content-grid">
-        <div class="content-card">
-          <span class="module-tag">Módulo 01</span>
-          <h3>Fundamentos do mercado</h3>
-          <ul>
+      <div class="modules-right">
+        <div class="module-item reveal">
+          <p class="module-num">Módulo 01</p>
+          <h3 class="module-title">Fundamentos do mercado</h3>
+          <ul class="module-items">
             <li>O que são criptomoedas</li>
             <li>Como surgiu o Bitcoin</li>
             <li>Diferença entre moeda, token e blockchain</li>
             <li>Por que o mercado chama atenção</li>
           </ul>
         </div>
-        <div class="content-card">
-          <span class="module-tag">Módulo 02</span>
-          <h3>Estrutura e funcionamento</h3>
-          <ul>
+
+        <div class="module-item reveal reveal-delay-1">
+          <p class="module-num">Módulo 02</p>
+          <h3 class="module-title">Estrutura e funcionamento</h3>
+          <ul class="module-items">
             <li>Como funcionam corretoras</li>
             <li>Noções sobre volatilidade</li>
             <li>Riscos comuns para iniciantes</li>
             <li>Erros que podem ser evitados</li>
           </ul>
         </div>
-        <div class="content-card">
-          <span class="module-tag">Módulo 03</span>
-          <h3>Organização e segurança</h3>
-          <ul>
+
+        <div class="module-item reveal reveal-delay-2">
+          <p class="module-num">Módulo 03</p>
+          <h3 class="module-title">Organização e segurança</h3>
+          <ul class="module-items">
             <li>Tipos de wallets</li>
             <li>Cuidados básicos com segurança</li>
             <li>Como continuar estudando</li>
@@ -184,84 +204,129 @@
           </ul>
         </div>
       </div>
-    </section>
-
-    <!-- ── OFERTA ── -->
-    <section id="oferta-section">
-      <div class="split-offer" id="oferta">
-        <div class="offer-box">
-          <h3>Oferta de lançamento</h3>
-          <p>Aproveite o valor promocional e tenha acesso ao ebook completo em formato digital. Substitua o botão pelo seu checkout, Pix ou link de pagamento.</p>
-          <div class="offer-list">
-            <div class="offer-item">✦ Ebook digital completo</div>
-            <div class="offer-item">✦ Material visualmente profissional</div>
-            <div class="offer-item">✦ Conteúdo ideal para quem quer começar</div>
-            <div class="offer-item">✦ Acesso rápido após o pagamento</div>
-          </div>
-          <div class="price-highlight">
-            <div class="old">Preço normal: R$ 97,00</div>
-            <div class="now">R$ 29,90</div>
-            <p style="color:var(--muted);font-size:.8rem;margin-top:4px;">Oferta especial por tempo limitado.</p>
-          </div>
-          <a href="#oferta" class="btn btn-primary">Comprar o Cripto Jovens</a>
-        </div>
-
-        <div class="guarantee-box">
-          <h3>Para quem é este ebook</h3>
-          <div class="offer-list">
-            <div class="offer-item">Quem quer entender cripto sem linguagem complicada</div>
-            <div class="offer-item">Quem está começando e precisa de base organizada</div>
-            <div class="offer-item">Quem prefere conteúdo direto e visual</div>
-            <div class="offer-item">Quem quer uma base antes de aprofundar</div>
-          </div>
-          <p style="margin-top:14px;">O Cripto Jovens foi pensado para tornar o primeiro contato com esse universo mais leve, claro e profissional.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── FAQ ── -->
-    <section id="faq">
-      <div class="section-heading">
-        <span class="section-label">FAQ</span>
-        <h2>Perguntas frequentes</h2>
-        <p>Tudo o que você precisa saber antes de garantir o seu acesso.</p>
-      </div>
-      <div class="faq">
-        <div class="faq-item">
-          <h3>O Cripto Jovens é para quem está começando?</h3>
-          <p>Sim. O ebook foi planejado justamente para quem quer entender os fundamentos do mercado cripto com uma linguagem mais simples.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Como o ebook é entregue?</h3>
-          <p>Você pode configurar a entrega por download, e-mail, área de membros ou pela própria plataforma de pagamento que usar.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Posso acessar pelo celular?</h3>
-          <p>Sim. O material é digital e pode ser lido no celular, tablet, notebook ou computador.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Esse site já está pronto para editar?</h3>
-          <p>Sim. Você já pode trocar textos, preço, botão de compra e qualquer detalhe visual diretamente no VS Code.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── FINAL CTA ── -->
-    <section id="cta-final">
-      <div class="final-cta">
-        <h2>Transforme curiosidade em conhecimento</h2>
-        <p>Uma página de vendas com visual premium, pronta para ser personalizada no VS Code e publicada com o seu link de pagamento.</p>
-        <a href="#oferta" class="btn btn-primary">Garantir meu acesso agora</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      © 2026 Cripto Jovens &nbsp;·&nbsp; Página demonstrativa para venda de ebook digital
     </div>
-  </footer>
+  </section>
 
+  <!-- OFFER -->
+  <section class="section" id="oferta">
+    <p class="section-label reveal">Oferta de lançamento</p>
+
+    <div class="offer-inner">
+      <div>
+        <h2 class="section-heading left reveal reveal-delay-1">
+          Comece hoje por R$ 29,90
+        </h2>
+
+        <ul class="offer-checklist reveal reveal-delay-2">
+          <li>Ebook digital completo — 3 módulos</li>
+          <li>Material visualmente profissional</li>
+          <li>Ideal para iniciantes e intermediários</li>
+          <li>Acesso imediato após o pagamento</li>
+          <li>Leitura em qualquer dispositivo</li>
+        </ul>
+
+        <p class="offer-small-note reveal reveal-delay-3">
+          Preço de lançamento por tempo limitado.<br />
+          Substitua o botão pelo seu link de pagamento.
+        </p>
+      </div>
+
+      <div class="offer-box reveal reveal-delay-1">
+        <p class="offer-box-old">De R$ 97,00</p>
+        <p class="offer-box-price"><sup>R$</sup> 29<span>,90</span></p>
+        <p class="offer-box-note">Pagamento único · sem recorrência</p>
+
+        <a href="#oferta" class="btn-primary full">
+          Comprar o Cripto Jovens
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1 7h12M7 1l6 6-6 6"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+
+        <div class="offer-trust">
+          <span class="trust-item">100% digital</span>
+          <span class="trust-item">Acesso rápido</span>
+          <span class="trust-item">Suporte</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <p class="section-label reveal">FAQ</p>
+    <h2 class="section-heading reveal reveal-delay-1">Perguntas frequentes</h2>
+
+    <div class="faq-list reveal reveal-delay-2">
+      <details class="faq-item">
+        <summary class="faq-q">O Cripto Jovens é para quem está começando?</summary>
+        <p class="faq-a">
+          Sim. O ebook foi planejado justamente para quem quer entender os fundamentos do mercado cripto com uma linguagem mais simples e acessível.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Como o ebook é entregue?</summary>
+        <p class="faq-a">
+          Você pode configurar a entrega por download, e-mail, área de membros ou pela própria plataforma de pagamento que usar.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Posso acessar pelo celular?</summary>
+        <p class="faq-a">
+          Sim. O material é digital e pode ser lido no celular, tablet, notebook ou computador.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Esse site está pronto para editar?</summary>
+        <p class="faq-a">
+          Sim. Você já pode trocar textos, preço, botão de compra e qualquer detalhe visual diretamente no VS Code.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <p class="section-label reveal center-label">Acesso imediato</p>
+
+    <h2 class="section-heading reveal reveal-delay-1 center-heading no-limit">
+      Transforme curiosidade<br />
+      <em class="final-emphasis">em conhecimento</em>
+    </h2>
+
+    <p class="section-sub reveal reveal-delay-2 center-text">
+      Uma base sólida para entender o mercado cripto com clareza, segurança e confiança.
+    </p>
+
+    <div class="hero-actions reveal reveal-delay-3 center-actions">
+      <a href="#oferta" class="btn-primary">
+        Garantir meu acesso
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1 7h12M7 1l6 6-6 6"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Cripto Jovens</span>
+    <span class="footer-copy">© 2026 Cripto Jovens · Página de venda de ebook digital</span>
+  </footer>
 </body>
 </html>

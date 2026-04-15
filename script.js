@@ -80,6 +80,45 @@ document.addEventListener("DOMContentLoaded", () => {
     radius: 150
   };
 
+    const countdownElement = document.getElementById("offerCountdown");
+  const countdownTimeElement = document.getElementById("offerCountdownTime");
+
+  if (countdownElement && countdownTimeElement) {
+    let remainingSeconds = 30 * 60;
+
+    const renderCountdown = () => {
+      const minutes = Math.floor(remainingSeconds / 60);
+      const seconds = remainingSeconds % 60;
+
+      countdownTimeElement.innerHTML = `
+        <span>${String(minutes).padStart(2, "0")}</span>
+        <small>min</small>
+        <span class="count-separator">:</span>
+        <span>${String(seconds).padStart(2, "0")}</span>
+        <small>seg</small>
+      `;
+    };
+
+    renderCountdown();
+
+    const countdownInterval = setInterval(() => {
+      remainingSeconds -= 1;
+
+      if (remainingSeconds <= 0) {
+        clearInterval(countdownInterval);
+        countdownElement.classList.add("is-expired");
+
+        setTimeout(() => {
+          countdownElement.remove();
+        }, 450);
+
+        return;
+      }
+
+      renderCountdown();
+    }, 1000);
+  }
+
   function resizeCanvas() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
@@ -254,4 +293,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   resizeCanvas();
   animate();
+
+const names = ["Mariana", "Juliana", "Patrícia", "Fernanda", "Camila", "Aline", "Renata"];
+
+function maskName(name) {
+  return name.substring(0, 3) + "*****";
+}
+
+function showTopPopup() {
+  const popup = document.getElementById("livePopupTop");
+  if (!popup) return;
+
+  const name = names[Math.floor(Math.random() * names.length)];
+
+  popup.textContent = `${maskName(name)} acabou de adquirir o Cripto 360°`;
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 4000);
+}
+
+// intervalo aleatório (7s a 15s)
+setInterval(() => {
+  showTopPopup();
+}, Math.random() * 8000 + 7000);
+
 });

@@ -318,6 +318,6 @@ function showTopPopup() {
 // intervalo aleatório (7s a 15s)
 setInterval(() => {
   showTopPopup();
-}, Math.random() * 8000 + 7000);
+},Math.random() * (5 * 60 * 1000 - 1 * 60 * 1000) + 1 * 60 * 1000);
 
 });

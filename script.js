@@ -294,30 +294,6 @@ document.addEventListener("DOMContentLoaded", () => {
   resizeCanvas();
   animate();
 
-const names = ["Mariana", "Juliana", "Patrícia", "Fernanda", "Camila", "Aline", "Renata"];
 
-function maskName(name) {
-  return name.substring(0, 3) + "*****";
-}
-
-function showTopPopup() {
-  const popup = document.getElementById("livePopupTop");
-  if (!popup) return;
-
-  const name = names[Math.floor(Math.random() * names.length)];
-
-  popup.textContent = `${maskName(name)} acabou de adquirir o Cripto 360°`;
-
-  popup.classList.add("show");
-
-  setTimeout(() => {
-    popup.classList.remove("show");
-  }, 4000);
-}
-
-// intervalo aleatório (7s a 15s)
-setInterval(() => {
-  showTopPopup();
-},Math.random() * (5 * 60 * 1000 - 1 * 60 * 1000) + 1 * 60 * 1000);
 
 });

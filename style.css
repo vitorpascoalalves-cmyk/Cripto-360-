@@ -1308,27 +1308,3 @@ footer {
     will-change: auto;
   }
 }
-.live-popup-top {
-  position: fixed;
-  top: 90px;
-  right: 20px;
-  padding: 14px 18px;
-  border-radius: 14px;
-  background: rgba(10, 12, 18, 0.92);
-  border: 1px solid rgba(255,255,255,.1);
-  backdrop-filter: blur(14px);
-  color: #fff;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  box-shadow: 0 10px 30px rgba(0,0,0,.45);
-  opacity: 0;
-  transform: translateY(-10px) scale(0.96);
-  transition: all 0.4s ease;
-  z-index: 999;
-  max-width: 260px;
-}
-
-.live-popup-top.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
